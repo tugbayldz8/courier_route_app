@@ -1,0 +1,68 @@
+[
+  {
+    "id":1,
+    "markerModel":{
+      "markerId":1,
+      "latitude": 41.02555701615959, 
+      "longitude": 28.63944595341381
+    },
+    "title": "İstanbul",
+    "address": "Barbaros Hayrettin Paşa, 2303. Sk 6, 34522 Esenyurt/İstanbul",
+    "fullName": "Tuğba Ataş",
+    "phone": "1234567",
+    "status": false
+  },
+  {
+    "id":2,
+    "markerModel":{
+      "markerId":2,
+      "latitude": 41.02644588068176,
+      "longitude":  28.64982900589004
+    },
+    "title": "İstanbul",
+    "address": "Piri Reis, Leyla Sk., 34515 Esenyurt/İstanbul",
+    "fullName": "Ecrin Yıldız",
+    "phone": "1234567",
+    "status": false
+  },
+  {
+      "id":3,
+      "markerModel":{
+        "markerId":3,
+        "latitude": 41.03074593164211,
+        "longitude":28.650040120591863
+      },
+      "title": "İstanbul",
+      "address": "Atatürk, Penguen Sk. 17-1, 34522 Esenyurt/İstanbul",
+      "fullName": "Tuğba Yıldız",
+      "phone": "1234567",
+      "status": false
+
+    },
+    {
+      "id":4,
+      "markerModel":{
+        "markerId":4,
+        "latitude": 41.03520494713408, 
+        "longitude": 28.65373462787378
+      },
+      "title": "İstanbul",
+      "address": "Şehitler, Defne Sk. 38-46, 34522 Esenyurt/İstanbul",
+      "fullName": "Alkan Ataş",
+      "phone": "1234567",
+      "status": false
+    },
+    {
+      "id":5,
+      "markerModel":{
+        "markerId":5,
+       "latitude": 41.046013724101854,
+        "longitude": 28.65277135406526
+      },
+      "title": "İstanbul",
+      "address": "Selahaddin Eyyubi, Piri Reis Cd. No:1, 34522 Esenyurt/İstanbul",
+      "fullName": "Esra Yıldız",
+      "phone": "1234567",
+      "status": false
+    }
+  ]

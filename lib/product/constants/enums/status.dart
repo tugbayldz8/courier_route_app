@@ -1,0 +1,16 @@
+enum Status {
+  initial,
+  loading,
+  loaded,
+  success,
+  failed,
+  emailAlreadyInUse,
+  weakPassword,
+  invalidEmail,
+  userNotFound,
+  wrongPassword,
+  userDisabled,
+  operationNotAllowed,
+  tooManyRequests,
+  undefined,
+}
