@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'marker_model.g.dart';
@@ -20,7 +19,6 @@ final class MarkerModel extends Equatable {
     int? markerId,
     double? latitude,
     double? longitude,
-    Set<Marker>? markers,
   }) {
     return MarkerModel(
       markerId: markerId ?? this.markerId,

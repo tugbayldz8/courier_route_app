@@ -1,6 +1,6 @@
 part of '../route_bottom_sheet.dart';
 
-final class _CustomerLocation extends StatelessWidget {
+final class _CustomerLocation extends ConsumerWidget {
   const _CustomerLocation({
     required this.locationModel,
   });
@@ -8,7 +8,7 @@ final class _CustomerLocation extends StatelessWidget {
   final LocationModel? locationModel;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Card(
       elevation: 4,
       child: Row(
@@ -34,7 +34,12 @@ final class _CustomerLocation extends StatelessWidget {
                     backgroundColor: WidgetStatePropertyAll(
                         Color.fromARGB(147, 211, 212, 212)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    ref.read(locationViewModelProvider.notifier).startRoute(
+                          locationModel?.id,
+                        );
+                    Navigator.maybePop(context);
+                  },
                   icon: const Icon(
                     Icons.location_on,
                   ),

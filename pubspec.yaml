@@ -22,11 +22,14 @@ dependencies:
   auto_route: ^8.3.0
   geolocator: ^12.0.0
   equatable: ^2.0.5
-  google_maps_flutter: ^2.2.8
   geocoding: ^3.0.0
   riverpod_annotation: ^2.3.5
   url_launcher: ^6.3.0
   flutter_gen: ^5.6.0
+  flutter_map: ^7.0.2
+  permission_handler: ^11.3.1
+  latlong2: ^0.9.1
+  flutter_map_cancellable_tile_provider: ^3.0.0
 
 dev_dependencies:
   flutter_test:
