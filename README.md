@@ -11,3 +11,5 @@
 <img src="https://github.com/tugbayldz8/sezin_soft/blob/main/screenshots/ss9.jpg" width="240"/>
 <img src="https://github.com/tugbayldz8/sezin_soft/blob/main/screenshots/ss10.jpg" width="240"/>
 <img src="https://github.com/tugbayldz8/sezin_soft/blob/main/screenshots/ss11.jpg" width="240"/>
+
+
