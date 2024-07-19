@@ -28,6 +28,12 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>App uses your location to send you personalized property recommendations and alerts even when you're not using the app.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>App uses your location to show you nearby properties and help you find your way to property viewings.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>App uses your location to show you nearby properties and help you find your way to property viewings.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

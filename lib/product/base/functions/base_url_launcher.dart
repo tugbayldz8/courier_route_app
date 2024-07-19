@@ -1,9 +1,11 @@
+import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final class BaseUrlLauncher {
   const BaseUrlLauncher._();
 
   static Future<bool> phone() async {
+    if (await Permission.phone.isDenied) return false;
     const url = 'tel:+905360728684';
     if (await canLaunchUrl(Uri.parse(url))) {
       return launchUrl(
