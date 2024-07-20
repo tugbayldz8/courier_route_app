@@ -29,15 +29,6 @@ class _CoruierState extends ConsumerState<CourierLoginPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          StringConstants.appBarTitle,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       body: Center(
         child: _PageBuilder(
           loginKey: loginKey,
@@ -63,7 +54,7 @@ final class _PageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(12.0),
         child: FormBuilder(
           key: loginKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -71,7 +62,7 @@ final class _PageBuilder extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const _LogoField(),
-              const SizedBox(height: 70),
+              const SizedBox(height: 100),
               _EmailField(emailController: emailController),
               const SizedBox(height: 20),
               _PasswordField(passwordController: passwordController),
@@ -84,9 +75,9 @@ final class _PageBuilder extends StatelessWidget {
               const SizedBox(height: 20),
               const Text('veya', style: TextStyle(color: Colors.grey)),
               const SizedBox(height: 20),
-               const _GoogleSignButton(),
+              const _GoogleSignButton(),
               const SizedBox(height: 10),
-               const _AppleSignButton(),
+              const _AppleSignButton(),
             ],
           ),
         ),
