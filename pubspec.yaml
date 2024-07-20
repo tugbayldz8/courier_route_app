@@ -30,6 +30,7 @@ dependencies:
   permission_handler: ^11.3.1
   latlong2: ^0.9.1
   flutter_map_cancellable_tile_provider: ^3.0.0
+  material_design_icons_flutter: ^7.0.7296
 
 dev_dependencies:
   flutter_test:

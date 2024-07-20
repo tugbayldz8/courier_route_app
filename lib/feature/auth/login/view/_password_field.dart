@@ -12,7 +12,6 @@ class _PasswordField extends StatefulWidget {
 }
 
 class __PasswordFieldState extends State<_PasswordField> {
-  
   bool _passwordVisibility = true;
   @override
   Widget build(BuildContext context) {
@@ -23,8 +22,13 @@ class __PasswordFieldState extends State<_PasswordField> {
       obscureText: _passwordVisibility,
       decoration: InputDecoration(
         border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: Colors.grey),
+          borderRadius: BorderRadius.all(Radius.circular(50),),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(50),),
+          borderSide: BorderSide(
+            color: Color.fromARGB(255, 209, 209, 209),
+          ),
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 10),
         prefixIcon: const Icon(Icons.lock, size: 20),

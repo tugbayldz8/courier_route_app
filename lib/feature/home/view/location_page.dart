@@ -37,6 +37,25 @@ class _LocationPageState extends ConsumerState<LocationPage> {
   Widget build(BuildContext context) {
     final locationModel = ref.watch(locationViewModelProvider);
     return Scaffold(
+      //bottomSheet: BottomSheet(
+          // onClosing: () {},
+          // builder: (context) {
+          //   final locationPageModel = ref.read(locationViewModelProvider);
+          //   if (locationPageModel.locationModelList != null) {
+          //     WidgetsBinding.instance.addPostFrameCallback(
+          //       (_) {
+          //         CustomBottomSheet.show<void>(
+          //           context: context,
+          //           child: LocationBottomSheet(
+          //             locationModelList: locationPageModel.locationModelList!,
+          //           ),
+          //         );
+          //       },
+          //     );
+          //   }
+          // },
+        //  ),
+      drawer: DrawerButton(),
       appBar: AppBar(
         centerTitle: true,
         title: const Text(

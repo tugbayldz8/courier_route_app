@@ -22,7 +22,8 @@ final class _TextButton extends ConsumerWidget {
                 locationModelList: locationPageModel.locationModelList!,
               ),
             );
-          });
+          },
+          );
         }
       },
     );

@@ -14,8 +14,17 @@ final class _EmailField extends StatelessWidget {
       controller: emailController,
       decoration: const InputDecoration(
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: Colors.grey),
+          borderRadius: BorderRadius.all(
+            Radius.circular(50),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(50),
+          ),
+          borderSide: BorderSide(
+            color: Color.fromARGB(255, 209, 209, 209),
+          ),
         ),
         contentPadding: EdgeInsets.symmetric(vertical: 10),
         prefixIcon: Icon(

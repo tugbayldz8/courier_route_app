@@ -15,8 +15,9 @@ final class _LoginButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        side: const BorderSide(color: Colors.black),
-        backgroundColor: const Color.fromARGB(255, 59, 59, 59),
+
+        fixedSize: const Size(400, 30),
+        backgroundColor: const Color.fromARGB(255, 74, 2, 133),
       ),
       onPressed: () {
         if (loginKey.currentState?.validate() ?? false) {
