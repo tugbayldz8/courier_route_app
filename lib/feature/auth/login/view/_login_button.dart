@@ -15,7 +15,6 @@ final class _LoginButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-
         fixedSize: const Size(400, 30),
         backgroundColor: const Color.fromARGB(255, 74, 2, 133),
       ),

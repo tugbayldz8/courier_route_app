@@ -37,156 +37,215 @@ class _LocationPageState extends ConsumerState<LocationPage> {
   Widget build(BuildContext context) {
     final locationModel = ref.watch(locationViewModelProvider);
     return Scaffold(
-      //bottomSheet: BottomSheet(
-          // onClosing: () {},
-          // builder: (context) {
-          //   final locationPageModel = ref.read(locationViewModelProvider);
-          //   if (locationPageModel.locationModelList != null) {
-          //     WidgetsBinding.instance.addPostFrameCallback(
-          //       (_) {
-          //         CustomBottomSheet.show<void>(
-          //           context: context,
-          //           child: LocationBottomSheet(
-          //             locationModelList: locationPageModel.locationModelList!,
-          //           ),
-          //         );
-          //       },
-          //     );
-          //   }
-          // },
-        //  ),
-      drawer: DrawerButton(),
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'Rotalar',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: const [
-          _TextButton(),
-        ],
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FloatingActionButton(
-            backgroundColor: Colors.green,
-            heroTag: 'start',
-            onPressed: () {
-              ref.read(locationViewModelProvider.notifier).startFullRoute();
-            },
-            child: const Icon(
-              Icons.play_arrow,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(width: 10),
-          FloatingActionButton(
-            backgroundColor: Colors.red,
-            heroTag: 'stop',
-            onPressed: () {
-              ref.read(locationViewModelProvider.notifier).stopRoute();
-            },
-            child: const Icon(
-              Icons.stop,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-      body: Builder(
-        builder: (context) {
-          if (locationModel.locationModelList != null &&
-              locationModel.position != null &&
-              locationModel.currentAddress != null) {
-            final locationPageModel = ref.read(locationViewModelProvider);
-            final markers = locationModel.locationModelList
-                ?.map(
-                  (e) => Marker(
-                    alignment: Alignment.topCenter,
-                    rotate: true,
-                    child: IconButton(
-                      onPressed: () {
-                        CustomBottomSheet.show<void>(
-                          context: context,
-                          child: RouteBottomSheet(
-                            id: e.id ?? 0,
-                            currentAddress:
-                                locationPageModel.currentAddress ?? '',
-                          ),
-                        );
-                      },
-                      icon: Icon(
-                        Icons.location_on,
-                        size: 50,
-                        color: e.status == true ? Colors.green : Colors.red,
-                      ),
-                    ),
-                    point: LatLng(
-                      e.markerModel?.latitude ?? 0,
-                      e.markerModel?.longitude ?? 0,
-                    ),
-                  ),
-                )
-                .toList();
-            return FlutterMap(
-              mapController: MapController(),
-              options: MapOptions(
-                initialZoom: 14,
-                initialCenter: LatLng(
-                  locationModel.position?.latitude ?? StringConstants.latitude,
-                  locationModel.position?.longitude ??
-                      StringConstants.longitude,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 74, 2, 133),
+                shadowColor: Colors.transparent,
+                side: const BorderSide(
+                  color: Color.fromARGB(255, 209, 209, 209),
                 ),
               ),
-              children: [
-                TileLayer(
-                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  userAgentPackageName: 'dev.fleaflet.flutter_map.example',
-                  tileProvider: CancellableNetworkTileProvider(),
-                ),
-                MarkerLayer(
-                  markers: markers ?? [],
-                ),
-                MarkerLayer(
-                  markers: [
-                    Marker(
-                      point: LatLng(
-                        locationModel.position?.latitude ?? 0,
-                        locationModel.position?.longitude ?? 0,
-                      ),
-                      child: const Icon(
-                        Icons.delivery_dining,
-                        size: 40,
-                      ),
+              onPressed: () {
+                ref.read(locationViewModelProvider.notifier).startFullRoute();
+              },
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.navigation_outlined,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    'Başlat',
+                    style: TextStyle(
+                      color: Colors.white,
                     ),
-                  ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+                side: const BorderSide(
+                  color: Color.fromARGB(255, 209, 209, 209),
                 ),
-                PolylineLayer(
-                  polylines: [
-                    Polyline(
-                      strokeWidth: 5,
-                      color: const Color.fromARGB(255, 3, 130, 233),
-                      points: [
-                        LatLng(
-                          locationModel.position?.latitude ?? 0,
-                          locationModel.position?.longitude ?? 0,
+              ),
+              onPressed: () {
+                ref.read(locationViewModelProvider.notifier).stopRoute();
+              },
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.close),
+                  SizedBox(width: 5),
+                  Text(
+                    'Sonlandır',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 74, 2, 133),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          Builder(
+            builder: (context) {
+              if (locationModel.locationModelList != null &&
+                  locationModel.position != null &&
+                  locationModel.currentAddress != null) {
+                final locationPageModel = ref.read(locationViewModelProvider);
+                final markers = locationModel.locationModelList
+                    ?.map(
+                      (e) => Marker(
+                        alignment: Alignment.topCenter,
+                        rotate: true,
+                        child: GestureDetector(
+
+                          onTap: () {
+                            CustomBottomSheet.show<void>(
+                              context: context,
+                              child: RouteBottomSheet(
+                                id: e.id ?? 0,
+                                currentAddress:
+                                    locationPageModel.currentAddress ?? '',
+                              ),
+                            );
+                          },
+                          child: Icon(
+                            Icons.location_on,
+                            size: 50,
+                            color: e.status == true ? Colors.green : Colors.red,
+                          ),
                         ),
-                        ...locationPageModel.points ?? [],
+                        point: LatLng(
+                          e.markerModel?.latitude ?? 0,
+                          e.markerModel?.longitude ?? 0,
+                        ),
+                      ),
+                    )
+                    .toList();
+                return FlutterMap(
+                  mapController: MapController(),
+                  options: MapOptions(
+                    initialZoom: 14,
+                    initialCenter: LatLng(
+                      locationModel.position?.latitude ??
+                          StringConstants.latitude,
+                      locationModel.position?.longitude ??
+                          StringConstants.longitude,
+                    ),
+                  ),
+                  children: [
+                    TileLayer(
+                      urlTemplate:
+                          'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                      userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+                      tileProvider: CancellableNetworkTileProvider(),
+                    ),
+                    MarkerLayer(
+                      markers: markers ?? [],
+                    ),
+                    MarkerLayer(
+                      markers: [
+                        Marker(
+                          point: LatLng(
+                            locationModel.position?.latitude ?? 0,
+                            locationModel.position?.longitude ?? 0,
+                          ),
+                          child: const Icon(
+                            Icons.delivery_dining,
+                            size: 40,
+                          ),
+                        ),
+                      ],
+                    ),
+                    PolylineLayer(
+                      polylines: [
+                        Polyline(
+                          strokeWidth: 5,
+                          color: const Color.fromARGB(255, 3, 130, 233),
+                          points: [
+                            LatLng(
+                              locationModel.position?.latitude ?? 0,
+                              locationModel.position?.longitude ?? 0,
+                            ),
+                            ...locationPageModel.points ?? [],
+                          ],
+                        ),
                       ],
                     ),
                   ],
-                ),
-              ],
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator.adaptive(),
-            );
-          }
-        },
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                );
+              }
+            },
+          ),
+          Positioned(
+            top: 60,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+              child: Row(
+                children: [
+                  const Text(
+                    'Rotalar',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(width: 150),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 74, 2, 133),
+                      shadowColor: Colors.transparent,
+                      side: const BorderSide(
+                        color: Color.fromARGB(255, 209, 209, 209),
+                      ),
+                    ),
+                    onPressed: () async {
+                      final locationPageModel =
+                          ref.read(locationViewModelProvider);
+                      if (locationPageModel.locationModelList != null) {
+                        WidgetsBinding.instance.addPostFrameCallback(
+                          (_) {
+                            CustomBottomSheet.show<void>(
+                              context: context,
+                              child: LocationBottomSheet(
+                                locationModelList:
+                                    locationPageModel.locationModelList!,
+                              ),
+                            );
+                          },
+                        );
+                      }
+                    },
+                    child: const Icon(
+                      Icons.list_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
