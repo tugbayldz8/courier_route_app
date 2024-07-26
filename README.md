@@ -1,4 +1,4 @@
-Herhangi bir şirkete bağlı kurye kendi ekranından giriş yaparak; rotasını görüntüleyip başlatabilir/bitirebilir, müşteri listesini görüntüleyebilir, bir sonraki müşteri ile ilgili işlemler yapabilir, teslim durumunu değiştirip anlık durumu haritada görebilir, müşteriyi arayabilir, herhangi bir soruna karşın şirkete bağlanıp anlık destek alabilir. 
+Herhangi bir şirkete bağlı kurye kendi ekranından giriş yaparak; o günlük rotasını en uygun sırayla görüntüleyip başlatabilir/bitirebilir, müşteri listesini görüntüleyebilir, bir sonraki müşteri ile ilgili işlemler yapabilir, teslim durumunu değiştirip anlık durumu haritada görebilir, müşteriyi arayabilir, herhangi bir soruna karşın şirkete bağlanıp anlık destek alabilir. 
 
 Genel olarak kullandığım paketler;
 json_serializable,
